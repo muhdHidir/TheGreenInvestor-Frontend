@@ -1,0 +1,120 @@
+@import "../App.css";
+
+/* Sizing */
+.container {
+  color: white;
+}
+
+.container-content {
+  margin-top: -10vh;
+}
+
+.screen5 {
+  margin-top: -10vh;
+}
+
+.subheader,
+.text-content {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+}
+
+.screen1 {
+  height: 100vh;
+}
+
+/* Font */
+
+.subheader {
+  font-family: "Playfair Display SC", serif;
+  font-size: xx-large;
+}
+
+.text-content {
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+  text-align: justify;
+}
+
+.title {
+  font-size: 3em;
+  text-align: center;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+}
+
+.play-button {
+  width: 50vw;
+}
+/* Responsive layout */
+@media screen and (min-width: 1024px) {
+  .play-button {
+    width: 30vw;
+  }
+}
+
+.scrollTip {
+  font-size: 2em;
+  font-weight: 500;
+  opacity: 0;
+  animation: shake 5s infinite backwards;
+  animation-delay: 2s;
+}
+
+/* Animations */
+.treeright {
+  /* transform: skewX(40deg); */
+  /* transform: translateX(40deg); */
+  right: -1%;
+  transform: rotateZ(-90deg);
+  z-index: -1;
+}
+
+.treeleft {
+  /* transform: skewX(40deg); */
+  /* transform: translateX(40deg); */
+  left: -2%;
+  transform: rotateZ(90deg);
+  z-index: -1;
+}
+@keyframes shake {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(-10px);
+  }
+
+  40% {
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(0px);
+  }
+}
+
+.bounce {
+  animation: bounce-in-right 3s ease;
+}
+
+@keyframes bounce-in-right {
+  0% {
+    opacity: 0;
+    transform: translateY(1000px);
+  }
+  20% {
+    transform: scale(2);
+    transform: translateY(-80px);
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

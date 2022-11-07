@@ -1,0 +1,80 @@
+.barcontainer {
+    position: relative;
+    border: 0px solid black;
+    border-radius: 5px 5px 0 0;
+    width: 80%;
+    margin-left: 3.5vh;
+    min-height: 15vw;
+    max-height: 25vw;
+    min-width: 90%;
+    max-width: 100%;
+    z-index: 1;
+}
+
+.barcontainerheader {
+    display: inline;
+    position: absolute;
+    width: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: #663399;
+    border-bottom: 3px solid black;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 0 black;
+    z-index: 0;
+}
+
+.bar {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    border: 0px solid black;
+    border-radius: 6px 6px 0 0;
+    background: #663399;
+    width: 15%;
+    text-align: center;
+    color: rgb(45, 45, 45);
+    text-shadow: 1px 1px 0 black;
+    font-size: 1vw;
+    box-shadow: 4px 0 8px #888;
+}
+
+.barlabel {
+    position: absolute;
+    border-top: 2px solid black;
+    background: #888;
+    bottom: 0;
+    width: 100%;
+    text-shadow: 1px 1px 0px black;
+    color: white;
+}
+
+.bar:nth-child(1) {
+    left: 20%;
+}
+
+.bar:nth-child(2) {
+    left: 45%;
+}
+
+.bar:nth-child(3) {
+    left: 70%;
+}
+
+/* .bar:nth-child(4) {
+    left: 35%;
+}
+
+.bar:nth-child(5) {
+    left: 50%;
+}
+
+.bar:nth-child(6) {
+    left: 65%;
+}
+
+.bar:nth-child(7) {
+    left: 80%;
+} */

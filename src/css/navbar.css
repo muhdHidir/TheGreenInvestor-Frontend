@@ -1,0 +1,46 @@
+@import "../App.css";
+
+.nav-container {
+  width: 100%;
+  height: 30vh;
+  font-family: "Playfair Display SC", serif;
+  font-size: 1.25rem;
+}
+
+.music-button {
+  transform: translateX(-100%);
+}
+@media screen and (max-width: 425px) {
+  .music-button {
+    transform: translateX(0);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .nav-container {
+    height: 10vh;
+  }
+}
+
+.navbar-title {
+  font-size: 2rem !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-container {
+    font-size: 1.25rem;
+  }
+
+  .navbar-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nav-container {
+    font-size: 1.5rem;
+  }
+  .navbar-title {
+    font-size: 3rem;
+    padding-top: 0.5rem !important;
+  }
+}

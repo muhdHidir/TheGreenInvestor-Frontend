@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-modal {
+  font-size: 12px;
+}
+
+.login-modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.login-modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.login-modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.login-modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 10px 10px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup="tooltip"].popup-overlay {
+  background: transparent;
+}
+
+/* .popup-content {
+    margin: auto;
+    background: rgba(52, 239, 111, 0.388);
+    width: 50%;
+    padding: 5px;
+  } */
+
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+
+[role="tooltip"].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+body.noscroll {
+  position: fixed;
+  overflow: hidden;
+}
