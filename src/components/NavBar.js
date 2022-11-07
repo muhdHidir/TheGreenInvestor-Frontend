@@ -163,7 +163,7 @@ export default function NavBar() {
           </Text> */}
 
             <Text className="z-20 notranslate text-white  text-4xl font-['Playfair_Display_SC']">
-              The Green Investor
+              The Blue Investor
             </Text>
           </Group>
         </Grid.Col>
