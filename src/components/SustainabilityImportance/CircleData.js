@@ -19,7 +19,7 @@ const CircleData = ({ value, label, unit }) => {
           </Text>
           <Text align="center" px="xs" sx={{ pointerEvents: "none" }}>
             <span className="text-xl font-bold text-darkGreen-50">{`${value} `}</span>
-            <span className="text-xs">{unit}</span>
+            <span className="text-xs font-bold text-darkGreen-50">{unit}</span>
           </Text>
         </Stack>
       }

@@ -76,7 +76,7 @@ const ImportanceSustain = () => {
       {!loading && (
         <Grid className="h-full w-full">
           <Grid.Col span={3}>
-            <Text className="text-md  font-serif">
+            <Text className="text-md my-2 font-serif">
               On the right, you are provided with stastics regarding some of the
               biggest causes of carbon emissions such as flight, electricity and
               fuel. BIT is Bituminous Coal , MSW is Municipal Solid Waste and

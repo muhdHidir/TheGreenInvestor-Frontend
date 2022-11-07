@@ -1,4 +1,11 @@
-import { Modal, Button, Group, Text, Stack } from "@mantine/core";
+import {
+  Modal,
+  Button,
+  Group,
+  Text,
+  Stack,
+  LoadingOverlay,
+} from "@mantine/core";
 import IncrementChip from "../DataMetric/IncrementChip";
 
 export default function ReviewModal({
@@ -10,9 +17,34 @@ export default function ReviewModal({
   article,
   openEnded,
   multiplier,
+
+  responseStats,
+  responseFeedback,
   handleClose,
 }) {
   console.log(article);
+  console.log(responseStats);
+  if (responseStats === null || responseFeedback === null) {
+    return (
+      <Modal
+        centered
+        size="lg"
+        className="font-bold text-xl"
+        opened={opened}
+        onClose={handleClose}
+        withCloseButton={false}
+        closeOnClickOutside={false}
+        title="Post Question Review"
+      >
+        <LoadingOverlay
+          loaderProps={{ size: "xl", color: "black" }}
+          overlayOpacity={0.0}
+          overlayColor="#c5c5c5"
+          visible
+        />
+      </Modal>
+    );
+  }
   return (
     <>
       <Modal

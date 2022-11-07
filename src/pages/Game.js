@@ -66,6 +66,8 @@ export default function Game() {
   });
 
   //handle Closing of the ReviewModal
+  console.log(responseFeedback);
+  console.log(responseStats);
   async function closeReviewHandler() {
     const changeQuestion = listQuestions[currentYear + 1];
     setOpenReview(false);
@@ -80,6 +82,8 @@ export default function Game() {
       setOptions(changeQuestion.optionsName);
       setIsOpenEnded(changeQuestion.openEnded);
     }
+    // setResponseFeedback(null);
+    // setResponseStats(null);
   }
 
   //handle closing of end game handler
@@ -154,6 +158,8 @@ export default function Game() {
         )
         .then((response) => {
           console.log(response);
+          setResponseFeedback(null);
+          setResponseStats(null);
           setResponseStats(response.data);
           setResponseFeedback(response.data.feedback);
           setCurrentIncome(response.data.currentIncomeVal);
@@ -181,6 +187,8 @@ export default function Game() {
         )
         .then((response) => {
           console.log(response);
+          setResponseFeedback(null);
+          setResponseStats(null);
           setResponseStats(response.data);
           setResponseFeedback(response.data.feedback);
           setCurrentIncome(response.data.currentIncomeVal);
@@ -309,6 +317,10 @@ export default function Game() {
           responseStats && responseStats.changeInSustainabilityVal
         }
         opened={openReview}
+        setResponseStats={setResponseStats}
+        setResponseFeedback={setResponseFeedback}
+        responseStats={responseStats}
+        responseFeedback={responseFeedback}
         openEnded={isOpenEnded}
         multiplier={multiplier}
         article={article}
@@ -424,7 +436,7 @@ export default function Game() {
                   onClick={onClickHandler}
                   disabled={selectedOption === null ? true : false}
                   size="md"
-                  className="h-[90%] w-[15%] bg-darkGreen-50 text-white"
+                  className="h-[90%] w-[25%] bg-darkGreen-50 text-white"
                 >
                   Submit
                 </Button>

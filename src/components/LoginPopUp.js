@@ -15,7 +15,7 @@ const LoginPopUp = () => (
       <Button
         compact
         color="teal"
-        className="cursor-pointer font-normal font-serif text-xl hover:scale-110  z-20 text-white"
+        className="cursor-pointer font-normal font-serif text-xl hover:scale-110 mx-auto z-20 text-white"
       >
         Login
       </Button>

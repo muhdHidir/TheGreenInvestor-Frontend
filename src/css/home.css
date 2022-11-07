@@ -1,10 +1,6 @@
 @import "../App.css";
 
 /* Sizing */
-.container {
-  color: white;
-}
-
 .container-content {
   margin-top: -10vh;
 }
@@ -20,12 +16,7 @@
   border-radius: 1rem;
 }
 
-.screen1 {
-  height: 100vh;
-}
-
 /* Font */
-
 .subheader {
   font-family: "Playfair Display SC", serif;
   font-size: xx-large;
@@ -63,21 +54,6 @@
 }
 
 /* Animations */
-.treeright {
-  /* transform: skewX(40deg); */
-  /* transform: translateX(40deg); */
-  right: -1%;
-  transform: rotateZ(-90deg);
-  z-index: -1;
-}
-
-.treeleft {
-  /* transform: skewX(40deg); */
-  /* transform: translateX(40deg); */
-  left: -2%;
-  transform: rotateZ(90deg);
-  z-index: -1;
-}
 @keyframes shake {
   0%,
   100% {

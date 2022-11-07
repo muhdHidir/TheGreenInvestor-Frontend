@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, Router, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, Button, Stack } from "@mantine/core";
-import { Tabs } from "@mantine/core";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { Parallax } from "react-scroll-parallax";
 
 import UserService from "../services/user.service";
 import { displayContent } from "../assets/LandingPageDisplayContent";
@@ -14,20 +10,13 @@ import authService from "../services/auth.service";
 import "../css/home.css";
 import { ScrollTip } from "../assets/images";
 
-import { variants } from "../assets/Animations";
-import { PrevIcon } from "../icons";
-
 import ImportanceSustain from "../components/SustainabilityImportance/ImportanceSustain";
-import GameService from "../services/GameService";
 
 export default function Home() {
   const [content, setContent] = useState("");
 
-  const [activeTab, setActiveTab] = useState("first");
-
   const [currentUser, setCurrentUser] = useState(undefined);
 
-  const { t } = useTranslation();
 
   let navigate = useNavigate();
 
@@ -52,22 +41,12 @@ export default function Home() {
     getPublicContent();
   }, []);
 
-  const tabValues = ["first", "second", "third", "forth"];
   const subheaders = [
     "Introduction",
     "What is Sustainability?",
     "Importance of Sustainability",
     "How to Play?",
   ];
-
-  function handleNextClick() {
-    let oldIndex = tabValues.indexOf(activeTab);
-    setActiveTab(tabValues[++oldIndex]);
-  }
-  function handlePrvClick() {
-    let oldIndex = tabValues.indexOf(activeTab);
-    setActiveTab(tabValues[--oldIndex]);
-  }
 
   function makeid(length) {
     var result = "";
@@ -94,7 +73,7 @@ export default function Home() {
   return (
     <div className="pl-4 pr-4 text-center">
       <div className="container-content">
-        <Parallax className="screen1 flex flex-col justify-between items-center">
+        <div className="screen1 h-screen flex flex-col justify-between items-center">
           <span />
           <h1 className="center text-white bounce title mt-10 self-center shadow-xl border-t-4 border-b-4 ">
             Welcome to the Sustainability Game
@@ -107,10 +86,9 @@ export default function Home() {
               alt="Scroll"
             />
           </div>
-        </Parallax>
+        </div>
 
         <div className="screen2 h-screen grid grid-rows-3">
-          {/* <div className="text-container grid grid-rows-3 h-full"> */}
           <Stack className="row-start-2">
             <Box className=" text-white bg-black bg-opacity-50 font-serif text-3xl p-4 rounded-3xl w-1/2 self-center">
               {subheaders[0]}
@@ -155,7 +133,7 @@ export default function Home() {
                   size="lg"
                   className=" text-white border-white self-center font-serif w-1/3 rounded-full font-extrabold text-xl mt-auto bg-darkGreen-50 "
                 >
-                  {t("home-button-playgame")}
+                  Play Game
                 </Button>
               </Link>
             ) : (
@@ -164,7 +142,7 @@ export default function Home() {
                 onClick={signUpAsGuest}
                 className=" text-white border-white self-center font-serif w-1/3 rounded-full font-extrabold text-xl mt-auto bg-darkGreen-50 "
               >
-                {t("home-button-playguest")}
+                Play as Guest
               </Button>
             )}
           </Stack>

@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import "../css/barchart.css";
 import "../css/navbar.css";
-// import "../css/navbar.css";
 import LoginPopUp from "./LoginPopUp";
 import myMusic from "../assets/music.mp3";
 import MuteButton from "./MuteButton";
@@ -15,6 +14,7 @@ import AuthService from "../services/auth.service";
 import EventBus from "../common/EventBus";
 import { Box, Button, Grid, Group, Menu, Select, Text } from "@mantine/core";
 import TranslatePopup from "./TranslatePopup/TranslatePopup";
+import { registerables } from "chart.js";
 
 export default function NavBar() {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -24,7 +24,6 @@ export default function NavBar() {
   const [playing, setPause] = useState(false);
   const player = new Audio(myMusic);
 
-  // const { t } = useTranslation();
   const [lang, setLang] = useState("");
 
   // This function put query that helps to
@@ -138,41 +137,59 @@ export default function NavBar() {
     // Fixed size that NavBar will take up
     <>
       <TranslatePopup opened={translateOpen} handleClose={handleClose} />
-      <Grid className="w-full z-20 pt-2  mb-4 align-baseline notranslate " grow>
-        <Grid.Col className="pt-2" span={4}>
-          <Group className="w-[75%] space-x-4" position="center">
+      <audio id="audio_player" autoPlay loop>
+        <source src={myMusic} type="audio/mp3" />
+      </audio>
+      <Grid
+        className="w-full z-20 pt-2 pr-4 pl-4 mx-0 mb-4 align-baseline notranslate "
+        grow
+        columns={24}
+      >
+        <Grid.Col className="pt-3" span={7}>
+          <Group className="space-x-4" position="left">
             <Link
               to={"/home"}
-              // className="col-span-2 lg:col-span-1 py-2 md:py-0 cursor-pointer hover:scale-110"
-              className="text-white font-serif text-xl z-20 hover:scale-110"
+              className="text-white font-serif text-xl z-20 hover:scale-110 "
             >
               Home
             </Link>
             <Link
               to={"/leaderboard"}
-              className="text-white font-serif text-xl z-20 hover:scale-110"
+              className="text-white font-serif text-xl z-20 hover:scale-110  "
             >
-              <Text>Leaderboard</Text>
+              Leaderboard
             </Link>
+            <div className="music-button hover:scale-110 cursor-pointer  w-[36px] z-20">
+              <MuteButton
+                playing={playing}
+                _toggleMuteButton={_toggleMuteButton}
+              />
+            </div>
           </Group>
         </Grid.Col>
-        <Grid.Col span={4}>
+        {/* <Grid.Col span={1} /> */}
+        <Grid.Col span={8} className="pt-3">
           <Group className="w-full" position="center">
             {/* <Text className="text-white text-lg z-24 navbar-title">
             The Green Investor
           </Text> */}
 
             <Text className="z-20 notranslate text-white  text-4xl font-['Playfair_Display_SC']">
-              The Blue Investor
+              The Green Investor
             </Text>
           </Group>
         </Grid.Col>
-        <Grid.Col span={4} className="pt-2">
-          <Group className="w-full" spacing={2} position="center">
-            <Button onClick={() => setTranslateOpen(true)}>
+        {/* <Grid.Col span={1} /> */}
+        <Grid.Col span={7} className="pt-3">
+          <Group className="w-full" spacing={2} position="right">
+            <Button
+              style={{ backgroundColor: "transparent" }}
+              className="z-20"
+              onClick={() => setTranslateOpen(true)}
+            >
               <CIcon
                 icon={cilTranslate}
-                className="text-xs text-white z-20 w-6 h-6"
+                className="text-xs text-white w-6 h-6 hover:scale-110 hover:border-b-2 hover:border-white "
                 size="custom"
                 color="white"
               />
@@ -183,12 +200,12 @@ export default function NavBar() {
               <>
                 <Link
                   to={"/profile"}
-                  className="cursor-pointer text-white font-serif text-xl hover:scale-110 pl-4 pr-4 z-20 "
+                  className="cursor-pointer text-white font-serif text-xl hover:scale-110  pl-4 pr-4 z-20 "
                 >
                   {currentUser.username}
                 </Link>
 
-                <div className="cursor-pointer font-serif text-xl hover:scale-110  z-20 text-white">
+                <div className="cursor-pointer font-serif text-xl hover:scale-110 z-20 text-white">
                   <a href="/home" onClick={logOut}>
                     Log Out
                   </a>
@@ -198,7 +215,7 @@ export default function NavBar() {
               // when user is not logged in
               <LoginPopUp
                 class="notranslate"
-                className="z-20 text-white font-serif text-xl"
+                className="z-20 text-white font-serif text-xl hover:scale-110"
               />
             )}
           </Group>

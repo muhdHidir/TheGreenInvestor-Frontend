@@ -48,27 +48,29 @@ function App() {
         className="fixed bg-video"
       />
       <NavBar />
-      <div className="content pl-4 pr-4 h-full scrollbar-hide overflow-auto">
-        <div className="scrollbar-hide overflow-auto">
-          <ParallaxProvider>
-            <Routes>
-              {currentState === "answering" ? (
-                <Route path="/" element={<Game />} />
-              ) : (
-                <Route path="/" element={<Home />} />
-              )}
-              <Route path="/home" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+      <div>
+        <div className=" content pl-4 pr-4 h-full">
+          <div className="scrollbar-hide overflow-auto">
+            <ParallaxProvider>
+              <Routes>
+                {currentState === "answering" ? (
+                  <Route path="/" element={<Game />} />
+                ) : (
+                  <Route path="/" element={<Home />} />
+                )}
+                <Route path="/home" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
 
-              <Route path="/user" element={<BoardUser />} />
-              <Route path="/mod" element={<BoardModerator />} />
-              <Route path="/admin" element={<BoardAdmin />} />
-              <Route path="/game" element={<Game />} />
-              <Route path="/gameover" element={<GameOver />} />
-              <Route path="/gamewin" element={<GameWin />} />
-            </Routes>
-          </ParallaxProvider>
+                <Route path="/user" element={<BoardUser />} />
+                <Route path="/mod" element={<BoardModerator />} />
+                <Route path="/admin" element={<BoardAdmin />} />
+                <Route path="/game" element={<Game />} />
+                <Route path="/gameover" element={<GameOver />} />
+                <Route path="/gamewin" element={<GameWin />} />
+              </Routes>
+            </ParallaxProvider>
+          </div>
         </div>
         <div className=" flex justify-center items-center">
           <Routes>

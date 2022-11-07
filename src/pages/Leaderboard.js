@@ -31,7 +31,7 @@ const Leaderboard = () => {
 
   if (leaderboardData.length === 0) {
     return (
-      <Box className="bg-gray-50 bg-opacity-70 h-[85vh] space-y-4 rounded-xl align-middle w-[60%] pt-4 pr-22 pl-22 pb-12  items-center justify-center scrollbar-hide overflow-auto notranslate">
+      <Box className="bg-gray-50 bg-opacity-70  space-y-4 rounded-xl align-middle w-[60%] pt-4 pr-22 pl-22 pb-12  items-center justify-center overflow-scroll notranslate">
         <Text className="text-center font-bold text-4xl text-darkGreen-50">
           Leaderboard
         </Text>
@@ -42,7 +42,7 @@ const Leaderboard = () => {
     );
   }
   return (
-    <Box className="bg-gray-50 bg-opacity-70 h-[85vh] space-y-4 rounded-xl align-middle w-[60%] pt-4 pr-22 pl-22 pb-12  items-center justify-center scrollbar-hide notranslate -auto">
+    <Box className="bg-gray-50 bg-opacity-70 h-[85vh] z-20 space-y-4 rounded-xl align-middle w-[60%] pt-4 pr-22 pl-22 pb-12  items-center justify-center scrollbar-hide overflow-auto notranslate ">
       <Text className="text-center font-bold text-4xl text-darkGreen-50">
         Leaderboard
       </Text>
