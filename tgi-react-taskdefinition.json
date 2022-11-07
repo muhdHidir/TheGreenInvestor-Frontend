@@ -9,8 +9,8 @@
         "logDriver": "awslogs",
         "secretOptions": null,
         "options": {
-          "awslogs-group": "/ecs/tgi-react-taskdefinitions",
-          "awslogs-region": "us-east-1",
+          "awslogs-group": "/ecs/tgi-react-taskdefinition",
+          "awslogs-region": "ap-southeast-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
@@ -37,7 +37,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "docker.io/hiidz/thegreeninvestor-react:4.0",
+      "image": "docker.io/hiidz/thegreeninvestor-react:5.0",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -64,8 +64,8 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:112177052938:task-definition/tgi-react-taskdefinitions:1",
-  "family": "tgi-react-taskdefinitions",
+  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:112177052938:task-definition/tgi-react-taskdefinition:2",
+  "family": "tgi-react-taskdefinition",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -108,7 +108,7 @@
     "cpuArchitecture": null
   },
   "cpu": "2048",
-  "revision": 1,
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
