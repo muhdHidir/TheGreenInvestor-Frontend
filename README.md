@@ -1,6 +1,6 @@
 # CS203 G2-T6
 
-# The Green Investor - A Sustainability Game (Backend Repo)
+# The Green Investor - A Sustainability Game (Frontend Repo)
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/muhdHidir/CS203-T6/main/Poster.png" width="50%"/>
