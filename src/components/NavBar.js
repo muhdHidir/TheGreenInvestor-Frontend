@@ -16,13 +16,11 @@ import { Box, Button, Grid, Group, Menu, Select, Text } from "@mantine/core";
 import TranslatePopup from "./TranslatePopup/TranslatePopup";
 import { registerables } from "chart.js";
 
-export default function NavBar() {
+export default function NavBar({ playing, setPlaying }) {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [translateOpen, setTranslateOpen] = useState(false);
-  const [playing, setPause] = useState(false);
-  const player = new Audio(myMusic);
 
   const [lang, setLang] = useState("");
 
@@ -53,12 +51,6 @@ export default function NavBar() {
   }, []);
 
   // For music player, runs everytime 'playing' is changed
-  useEffect(() => {
-    playing ? player.play() : player.pause();
-
-    // This is cleanup of the effect
-    return () => player.pause();
-  }, [playing]);
 
   function logOut() {
     AuthService.logout();
@@ -70,7 +62,7 @@ export default function NavBar() {
   function _toggleMuteButton() {
     // var myAudio = document.getElementById("audio_player");
     // myAudio.muted = !myAudio.muted;
-    setPause((s) => !s);
+    setPlaying((s) => !s);
     // setPause(!playing);
   }
   const googleTranslateElementInit = () => {
@@ -133,13 +125,13 @@ export default function NavBar() {
     setTranslateOpen(false);
   }
 
+  console.log(playing);
+
   return (
     // Fixed size that NavBar will take up
     <>
       <TranslatePopup opened={translateOpen} handleClose={handleClose} />
-      <audio id="audio_player" autoPlay loop>
-        <source src={myMusic} type="audio/mp3" />
-      </audio>
+      
       <Grid
         className="w-full z-20 pt-2 pr-4 pl-4 mx-0 mb-4 align-baseline notranslate "
         grow

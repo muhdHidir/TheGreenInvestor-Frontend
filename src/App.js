@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Register from "./pages/Register";
@@ -13,6 +13,8 @@ import Game from "./pages/Game";
 import GameOver from "./pages/GameOver";
 import GameWin from "./pages/GameWin";
 import Leaderboard from "./pages/Leaderboard";
+import myMusic from "./assets/music.mp3";
+
 import Login from "./components/Login";
 
 // import backgroundVideo from "./assets/forestbg.mp4";
@@ -23,6 +25,24 @@ import GameService from "./services/GameService";
 
 function App() {
   const [currentState, setCurrentState] = useState("");
+  const [playing, setPlaying] = useState(false);
+  const player = new Audio(myMusic);
+
+  function playAudio(id) {
+    document.getElementById(id).play();
+  }
+  function pauseAudio(id) {
+    document.getElementById(id).pause();
+  }
+
+  useEffect(() => {
+    playing ? playAudio("audio_player") : pauseAudio("audio_player");
+    console.log("lalala");
+    return () => player.pause();
+
+    // This is cleanup of the effect
+  }, [playing]);
+  console.log(playing);
   useEffect(() => {
     async function getCurrentState() {
       const gameStateResponse = GameService.getGameState();
@@ -39,6 +59,9 @@ function App() {
 
   return (
     <div className="main scrollbar-hide overflow-auto">
+      <audio id="audio_player" loop>
+        <source src={myMusic} type="audio/mp3" />
+      </audio>
       <video
         src="https://tgi-bucket.s3.ap-southeast-1.amazonaws.com/bg_vid.mp4"
         type="video/mp4"
@@ -47,7 +70,7 @@ function App() {
         muted
         className="fixed bg-video"
       />
-      <NavBar />
+      <NavBar playing={playing} setPlaying={setPlaying} />
       <div>
         <div className=" content pl-4 pr-4 h-full">
           <div className="scrollbar-hide overflow-auto">

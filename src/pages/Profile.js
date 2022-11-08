@@ -43,10 +43,9 @@ export default function Profile() {
     setOpened(false);
   }
 
-
   if (currentUser === undefined || profileDetails === null) {
     return (
-      <Box className="bg-gray-50 bg-opacity-70 h-full rounded-xl self-center align-middle relative w-[35%] pt-2 pr-2 pl-2 pb-2">
+      <Box className="bg-gray-50 bg-opacity-70 h-full rounded-xl self-center align-middle relative w-[35%] pt-2 pr-2 pl-2 pb-2 notranslate">
         <LoadingOverlay
           loaderProps={{ size: "xl", color: "black" }}
           overlayOpacity={0.0}
@@ -56,8 +55,9 @@ export default function Profile() {
       </Box>
     );
   }
+  console.log(opened);
   return (
-    <Box className="bg-gray-50 bg-opacity-70 h-[40%] rounded-xl self-center align-middle relative w-[35%] pt-2 pr-2 pl-2 pb-2">
+    <Box className="bg-gray-50 bg-opacity-70 h-[40%] rounded-xl notranslate self-center align-middle relative w-[35%] pt-2 pr-2 pl-2 pb-2 z-20">
       <ProfilePics
         opened={opened}
         handleClose={handleClose}
@@ -86,7 +86,7 @@ export default function Profile() {
           <span className="font-bold"> {profileDetails.gamesPlayed} </span>{" "}
         </Text>
         <Button
-          className="bg-darkGreen-50 w-1/2"
+          className="bg-darkGreen-50 w-1/2 z-20"
           onClick={() => {
             setOpened(true);
           }}
