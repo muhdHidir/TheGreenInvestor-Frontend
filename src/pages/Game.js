@@ -94,9 +94,9 @@ export default function Game() {
   useEffect(() => {
     if (cashChartData !== undefined && responseStats !== null) {
       if (
-        responseStats?.currentSustainabilityVal < 0 ||
-        responseStats?.currentMoraleVal < 0 ||
-        cashChartData[cashChartData?.length - 1] < 0
+        responseStats?.currentSustainabilityVal <= 0 ||
+        responseStats?.currentMoraleVal <= 0 ||
+        cashChartData[cashChartData?.length - 1] <= 0
       ) {
         setOpenEndGame({ failed: true, opening: true });
       } else if (currentYear > 9) {
@@ -246,6 +246,7 @@ export default function Game() {
       await setCurrentSustainability(
         currentStats !== null ? currentStats[0].currentSustainabilityVal : 150
       );
+      await setCashChartData([0,100]);
     }
 
     await setOptions(questionRetrieved.optionsName);
